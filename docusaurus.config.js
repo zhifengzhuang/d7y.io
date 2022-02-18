@@ -6,16 +6,27 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: "Dragonfly",
+  tagline: "An Open-source P2P-based Image and File Distribution System",
+  url: "https://d7y.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
-
+  organizationName: "dragonflyoss", // Usually your GitHub org/user name.
+  projectName: "d7y.io", // Usually your repo name.
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "zh"],
+    localeConfigs: {
+      en: {
+        label: "English",
+      },
+      zh: {
+        label: "简体中文",
+      },
+    },
+  },
   presets: [
     [
       "classic",
@@ -39,27 +50,38 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: "Dragonfly",
         logo: {
-          alt: "My Site Logo",
+          alt: "Dragonfly",
           src: "img/logo.svg",
         },
         items: [
           {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
+            to: "docs/",
+            activeBasePath: "docs",
+            label: "Documentation",
+            position: "right",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
+            to: "blog",
+            label: "Blog",
+            position: "right",
+          },
+          {
+            to: "community",
+            label: "Community",
+            position: "right",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+          },
+          {
+            type: "localeDropdown",
             position: "right",
           },
         ],
@@ -80,12 +102,7 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
+                html: '<div class="dingtalk"> <a class="dingtalk-label">DingTalk</a> <a class="dingtalk-img" aria-label="DingTalk"><img src="https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/en/images/community/dingtalk-group.jpeg" alt="DingTalk Group"></div>',
               },
               {
                 label: "Twitter",
