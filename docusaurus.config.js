@@ -34,15 +34,16 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: function ({ locale, docPath }) {
+            return `https://github.com/dragonflyoss/d7y.io/edit/main/docs/${docPath}`
+          },
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          includeCurrentVersion: true,
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          editUrl: "https://github.com/dragonflyoss/d7y.io/tree/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -77,10 +78,6 @@ const config = {
             position: "right",
           },
           {
-            type: "docsVersionDropdown",
-            position: "right",
-          },
-          {
             type: "localeDropdown",
             position: "right",
           },
@@ -90,11 +87,15 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Documentation",
             items: [
               {
+                label: "Getting Started",
+                to: "/docs/quick-start",
+              },
+              {
                 label: "Tutorial",
-                to: "/docs/intro",
+                to: "/docs/tutorial",
               },
             ],
           },
@@ -102,11 +103,15 @@ const config = {
             title: "Community",
             items: [
               {
-                html: '<div class="dingtalk"> <a class="dingtalk-label">DingTalk</a> <a class="dingtalk-img" aria-label="DingTalk"><img src="https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/en/images/community/dingtalk-group.jpeg" alt="DingTalk Group"></div>',
+                html: '<div class="dingtalk"> <a class="dingtalk-label">DingTalk</a> <a class="dingtalk-img" aria-label="DingTalk"><img src="https://raw.githubusercontent.com/dragonflyoss/d7y.io/main/static/img/landing/dingtalk.jpg" alt="DingTalk Group"></div>',
+              },
+              {
+                label: "Discussions",
+                href: "https://github.com/dragonflyoss/Dragonfly2/discussions",
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                href: "https://twitter.com/dragonfly_oss",
               },
             ],
           },
@@ -119,12 +124,12 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/dragonflyoss/Dragonfly2",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Dragonfly Authors.`,
       },
       prism: {
         theme: lightCodeTheme,
