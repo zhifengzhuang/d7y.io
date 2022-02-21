@@ -3,12 +3,18 @@
  * and scoped locally.
  */
 
+.hero {
+  border-bottom: 1px solid var(--hero-border-color);
+}
+
 .heroBanner {
-  background-color: #239b56;
-  padding: 4rem 0;
+  display: flex;
+  flex-flow: column;
+  padding: 8rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 5px 8px -5px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 966px) {
@@ -17,8 +23,56 @@
   }
 }
 
+.cncfLogo {
+  height: 90px;
+}
+
+@media screen and (max-width: 768px) {
+  .cncfLogo {
+    height: 64px;
+  }
+}
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-flow: row;
+  margin-top: 1.5rem;
+}
+
+.badgeWrapper {
+  display: flex;
+  flex-flow: row;
+}
+
+.badgeWrapper > * {
+  margin-left: 0.2rem;
+}
+
+.badgeWrapper:first-child {
+  margin-left: -0.2rem;
+}
+
+.description {
+  line-height: 30px;
+  font-size: 1.2rem;
+}
+
+.questionIcon {
+  height: 1.8rem;
+}
+
+.basicTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.basicTitle img {
+  margin-right: 0.8rem;
 }
