@@ -15,6 +15,13 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 5px 8px -5px rgba(0, 0, 0, 0.5);
+  background: center no-repeat url("/img/landing/bg-white.svg");
+  background-size: cover;
+}
+
+html[data-theme="dark"] .heroBanner {
+  background: center no-repeat url("/img/landing/bg-opacity.svg");
+  background-size: cover;
 }
 
 @media screen and (max-width: 966px) {
