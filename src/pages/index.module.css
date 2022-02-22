@@ -4,6 +4,7 @@
  */
 
 .hero {
+  background-color: rgba(233, 247, 239, 0.3);
   border-bottom: 1px solid var(--hero-border-color);
 }
 
@@ -61,8 +62,8 @@ html[data-theme="dark"] .heroBanner {
   margin-left: 0.2rem;
 }
 
-.badgeWrapper:first-child {
-  margin-left: -0.2rem;
+.badgeWrapper > :first-child {
+  margin-left: -0.2rem !important;
 }
 
 .description {
@@ -89,5 +90,45 @@ html[data-theme="dark"] .heroBanner {
 }
 
 .featureTitle {
-  text-align: center;
+  margin: 0 auto;
+}
+
+.cardWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.cardWrapper > :first-child {
+  margin-left: -1rem;
+}
+
+.cardWrapper .icon {
+  height: 1.8rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.card {
+  margin-left: 5rem;
+  border: 1px solid var(--hero-border-color);
+  height: 20rem;
+  width: 18rem;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px -6px rgba(45, 67, 121, 0.1) !important;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.cardSubtitle {
+  color: var(--hero-subtitle-font-color);
 }

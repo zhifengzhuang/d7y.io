@@ -41,10 +41,115 @@ export default function Home() {
       <main className={clsx("hero", styles.hero)}>
         <div className="container">
           <div className="row">
-            <div className="col">
-              <h1 className={styles.featureTitle}>
-                <Translate>Why Dragonfly?</Translate>
-              </h1>
+            <h1 className={styles.featureTitle}>
+              <Translate>Why Dragonfly?</Translate>
+            </h1>
+          </div>
+          <div className={clsx("row", styles.cardWrapper)}>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>
+                <img
+                  className={styles.icon}
+                  src={useBaseUrl("img/icon/transfer.svg")}
+                  alt="transfer"
+                />
+                <Translate>A P2P-Based File Distribution System</Translate>
+              </p>
+              <p className={styles.cardSubtitle}>
+                <Translate>
+                  By harnessing the power of P2P technology, it supports
+                  large-scale file distribution with improved downloading speed
+                  and success rate and lower consumption of bandwidth,
+                  especially cross-IDC bandwidth.
+                </Translate>
+              </p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>
+                <img
+                  className={styles.icon}
+                  src={useBaseUrl("img/icon/support.svg")}
+                  alt="support"
+                />
+                <Translate>
+                  Non-Invasive Support for Various Container Technologies
+                </Translate>
+              </p>
+              <p className={styles.cardSubtitle}>
+                <Translate>
+                  Get it up and running with a few simple configurations,
+                  without touching the code of container services.
+                </Translate>
+              </p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>
+                <img
+                  className={styles.icon}
+                  src={useBaseUrl("img/icon/cdn.svg")}
+                  alt="cdn"
+                />
+                <Translate>Passive CDN</Translate>
+              </p>
+              <p className={styles.cardSubtitle}>
+                <Translate>
+                  It avoids downloading the same files repeatedly by taking
+                  advantage of the CDN technology.
+                </Translate>
+              </p>
+            </div>
+          </div>
+          <div className={clsx("row", styles.cardWrapper)}>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>
+                <img
+                  className={styles.icon}
+                  src={useBaseUrl("img/icon/traffic.svg")}
+                  alt="traffic"
+                />
+                <Translate>Host-Level Traffic Throttling</Translate>
+              </p>
+              <p className={styles.cardSubtitle}>
+                <Translate>
+                  Cap the total traffic of all jobs on a host at a certain
+                  level. Implement P2P files distribution with various storage
+                  types through a unified back-to-source adapter layer.
+                </Translate>
+              </p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>
+                <img
+                  className={styles.icon}
+                  src={useBaseUrl("img/icon/pressure.svg")}
+                  alt="pressure"
+                />
+                <Translate>Little Pressure upon File Sources</Translate>
+              </p>
+              <p className={styles.cardSubtitle}>
+                <Translate>
+                  Normally only cdn and dfdaemon download from the source, hence
+                  little pressure upon file sources.
+                </Translate>
+              </p>
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>
+                <img
+                  className={styles.icon}
+                  src={useBaseUrl("img/icon/flexible.svg")}
+                  alt="flexible"
+                />
+                <Translate>User-Friendly</Translate>
+              </p>
+              <p className={styles.cardSubtitle}>
+                <Translate>
+                  Get everything done with a few simple configurations. Use it
+                  in a way similar to Curl. Client supports third-party
+                  software's native integration of Dragonfly's P2P capabilities
+                  through the C/S mode. Harbor, Nydus, etc.
+                </Translate>
+              </p>
             </div>
           </div>
         </div>
