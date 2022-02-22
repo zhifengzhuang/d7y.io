@@ -6,6 +6,7 @@
 .hero {
   background-color: rgba(233, 247, 239, 0.3);
   border-bottom: 1px solid var(--hero-border-color);
+  padding: 5rem;
 }
 
 .heroBanner {
@@ -94,7 +95,7 @@ html[data-theme="dark"] .heroBanner {
 }
 
 .featureTitle {
-  margin: 3rem auto auto auto;
+  margin: 0 auto;
 }
 
 .featureSubtitle {
@@ -106,7 +107,7 @@ html[data-theme="dark"] .heroBanner {
 }
 
 .title {
-  margin: 7rem auto auto auto;
+  margin: 5rem auto auto auto;
 }
 
 .subtitle {
