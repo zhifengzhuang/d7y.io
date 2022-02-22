@@ -14,9 +14,6 @@ export default function Home() {
   const videoOpts = {
     height: "390",
     width: "640",
-    playerVars: {
-      autoplay: 1,
-    },
   }
 
   return (
