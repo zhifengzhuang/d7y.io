@@ -89,14 +89,38 @@ html[data-theme="dark"] .heroBanner {
   transform: scale(1.2);
 }
 
-.featureTitle {
+.title {
   margin: 0 auto;
+}
+
+.featureTitle {
+  margin: 3rem auto auto auto;
+}
+
+.featureSubtitle {
+  text-align: center;
+  width: 50rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.title {
+  margin: 7rem auto auto auto;
+}
+
+.subtitle {
+  text-align: center;
+  width: 50rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
 }
 
 .cardWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 1.5rem;
 }
 
 .cardWrapper > :first-child {
@@ -116,7 +140,7 @@ html[data-theme="dark"] .heroBanner {
   width: 18rem;
   border-radius: 8px;
   padding: 1.5rem;
-  background-color: #fff;
+  background-color: var(--hero-card-color);
 }
 
 .card:hover {
@@ -145,10 +169,27 @@ html[data-theme="dark"] .heroBanner {
 .userImageWrapper {
   display: flex;
   flex-direction: row;
-  margin-top: 4rem;
   justify-content: space-around;
+  margin-top: 4rem;
 }
 
 .userImage {
   height: 5rem;
+}
+
+.introWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.introSubtitleWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.introVideoWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1.5rem;
 }

@@ -7,9 +7,18 @@ import Translate, { translate } from "@docusaurus/Translate"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import styles from "./index.module.css"
 import GitHubButton from "react-github-btn"
+import YouTube from "react-youtube"
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext()
+  const videoOpts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      autoplay: 1,
+    },
+  }
+
   return (
     <Layout>
       <header className={clsx("hero", styles.heroBanner)}>
@@ -42,8 +51,17 @@ export default function Home() {
         <div className="container">
           <div className="row">
             <h1 className={styles.featureTitle}>
-              <Translate>Why Dragonfly?</Translate>
+              <Translate>Why Dragonfly</Translate>
             </h1>
+          </div>
+          <div className={clsx("row", styles.introSubtitleWrapper)}>
+            <p className={styles.featureSubtitle}>
+              <Translate>
+                Originally it was born to solve distribution at large scales,
+                such as file distribution, log distribution, image distribution,
+                etc. It solves the following problems:
+              </Translate>
+            </p>
           </div>
           <div className={clsx("row", styles.cardWrapper)}>
             <div className={styles.card}>
@@ -153,10 +171,31 @@ export default function Home() {
             </div>
           </div>
 
+          <div className={clsx("row", styles.introWrapper)}>
+            <div className="row">
+              <h1 className={styles.title}>
+                <Translate>Intro To Dragonfly</Translate>
+              </h1>
+            </div>
+            <div className={clsx("row", styles.introSubtitleWrapper)}>
+              <p className={styles.subtitle}>
+                <Translate>
+                  Want to learn more about how dragonfly works ? Watch this
+                  video to explain the new evolution of dragonfly. The content
+                  will also cover how to deploy dragonfly and practice examples.
+                </Translate>
+              </p>
+            </div>
+            <div className={clsx("row", styles.introVideoWrapper)}>
+              <YouTube videoId="YJUZKUtqSFg" opts={videoOpts} />
+              <YouTube videoId="ul2e-srHRr4" opts={videoOpts} />
+            </div>
+          </div>
+
           <div className={clsx("row", styles.userWrapper)}>
             <div className="row">
-              <h1 className={styles.userTitle}>
-                <Translate>Who Is Using Dragonfly?</Translate>
+              <h1 className={styles.title}>
+                <Translate>Who Is Using Dragonfly</Translate>
               </h1>
             </div>
             <div className={clsx("row", styles.userImageWrapper)}>
@@ -288,7 +327,7 @@ const BasicInfo = () => (
                 src={useBaseUrl("img/icon/question.svg")}
                 alt="question"
               />
-              <Translate>What is Dragonfly?</Translate>
+              <Translate>What is Dragonfly ?</Translate>
             </h1>
           </div>
 

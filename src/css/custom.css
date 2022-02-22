@@ -16,6 +16,7 @@
   --ifm-code-font-size: 95%;
   --hero-border-color: rgba(0, 0, 0, 0.1);
   --hero-subtitle-font-color: rgba(0, 0, 0, 0.6);
+  --hero-card-color: #fff;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -29,6 +30,7 @@ html[data-theme="dark"] {
   --ifm-color-primary-lightest: #4fddbf;
   --hero-border-color: rgba(255, 255, 255, 0.1);
   --hero-subtitle-font-color: #fff;
+  --hero-card-color: rgba(0, 0, 0, 0.6);
 }
 
 .cncf-logo {
