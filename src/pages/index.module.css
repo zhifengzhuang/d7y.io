@@ -133,6 +133,22 @@ html[data-theme="dark"] .heroBanner {
   color: var(--hero-subtitle-font-color);
 }
 
-.user {
-  margin-top: 5rem;
+.userWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.userTitle {
+  margin: 5rem auto 0 auto;
+}
+
+.userImageWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4rem;
+  justify-content: space-around;
+}
+
+.userImage {
+  height: 5rem;
 }

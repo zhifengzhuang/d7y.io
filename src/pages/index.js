@@ -152,10 +152,99 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className={clsx("row", styles.user)}>
-            <h1 className={styles.featureTitle}>
-              <Translate>Who Is Using Dragonfly?</Translate>
-            </h1>
+
+          <div className={clsx("row", styles.userWrapper)}>
+            <div className="row">
+              <h1 className={styles.userTitle}>
+                <Translate>Who Is Using Dragonfly?</Translate>
+              </h1>
+            </div>
+            <div className={clsx("row", styles.userImageWrapper)}>
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/alibaba-group.svg")}
+                alt="alibaba-group"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/alibaba-cloud.png")}
+                alt="alibaba-cloud"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/ant-financial.png")}
+                alt="ant-financial"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/intel.svg")}
+                alt="intel"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/amap.png")}
+                alt="amap"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/yahoo.svg")}
+                alt="yahoo"
+              />
+            </div>
+            <div className={clsx("row", styles.userImageWrapper)}>
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/lazada.svg")}
+                alt="lazada"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/meituan.svg")}
+                alt="meituan"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/jd.png")}
+                alt="jd"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/qunar.svg")}
+                alt="qunar"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/iflytek.png")}
+                alt="iflytek"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/china-mobile.svg")}
+                alt="china-mobile"
+              />
+            </div>
+            <div className={clsx("row", styles.userImageWrapper)}>
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/xiaomi.png")}
+                alt="xiaomi"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/cainiao.svg")}
+                alt="cainiao"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/didi.png")}
+                alt="didi"
+              />
+              <img
+                className={styles.userImage}
+                src={useBaseUrl("img/user/huya.png")}
+                alt="huya"
+              />
+            </div>
           </div>
         </div>
       </main>
