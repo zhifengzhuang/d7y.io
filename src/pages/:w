@@ -134,5 +134,5 @@ html[data-theme="dark"] .heroBanner {
 }
 
 .user {
-  margin-top: 5rem;
+  margin-top: 10rem;
 }

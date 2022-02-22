@@ -152,6 +152,11 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <div className={clsx("row", styles.user)}>
+            <h1 className={styles.featureTitle}>
+              <Translate>Who Is Using Dragonfly?</Translate>
+            </h1>
+          </div>
         </div>
       </main>
 
