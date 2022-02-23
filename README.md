@@ -1,10 +1,9 @@
 # Dragonfly Website
 
 This repository contains the source code for [d7y.io](https://d7y.io).
-
 It's built by [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-## Contributing
+## Add or Update Docs
 
 When you add or modify the docs, these five files(`docs/`, `docs/resource/`, `i18n/zh/docusaurus-plugin-content-docs/current/`, `i18n/zh/docusaurus-plugin-content-docs/current/current.json` and `sidebars.js`) should be taken into consideration.
 
@@ -62,15 +61,13 @@ When you add or modify the docs, these five files(`docs/`, `docs/resource/`, `i1
    }
    ```
 
-5. Generate sidebars i18n file and translate.
+5. Generate sidebars i18n `i18n/zh/docusaurus-plugin-content-docs/current/current.json` file.
 
-Generate sidebars i18n file `i18n/zh/docusaurus-plugin-content-docs/current/current.json`.
-
-```
-$ npm run write-translations
+```shell
+npm run write-translations
 ```
 
-Translate the sidebars content in the file.
+6. Translate the sidebars content in the `i18n/zh/docusaurus-plugin-content-docs/current/current.json`.
 
 ```json
 {
@@ -93,22 +90,22 @@ Translate the sidebars content in the file.
 
 ## Installation
 
-```
-$ yarn install
+```shell
+yarn install
 ```
 
 ## Local Development
 
-```
-$ yarn start
+```shell
+yarn start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
 ## Build
 
-```
-$ yarn build
+```shell
+yarn build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
