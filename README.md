@@ -86,15 +86,15 @@ npm run write-translations
 }
 ```
 
-# Website Development
+## Website Development
 
-## Installation
+### Installation
 
 ```shell
 yarn install
 ```
 
-## Local Development
+### Local Development
 
 ```shell
 yarn start
@@ -102,7 +102,7 @@ yarn start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-## Build
+### Build
 
 ```shell
 yarn build
