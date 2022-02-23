@@ -5,7 +5,8 @@ It's built by [Docusaurus 2](https://v2.docusaurus.io/), a modern static website
 
 ## Add or Update Docs
 
-When you add or modify the docs, these five files(`docs/`, `docs/resource/`, and `sidebars.js`) should be taken into consideration.
+When you add or modify the docs,
+these five files(`docs/`, `docs/resource/`, and `sidebars.js`) should be taken into consideration.
 
 1. Create a markdown file in the directory `docs/`. All markdown files need to follow the format,
    that the title at the beginning should be in the following format:
@@ -67,7 +68,8 @@ yarn install
 yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens up a browser window.
+Most changes are reflected live without having to restart the server.
 
 ### Build
 
