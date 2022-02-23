@@ -33,10 +33,10 @@ export default function Home() {
           <p className="hero__subtitle">{siteConfig.tagline}</p>
         </div>
         <div className={styles.buttonWrapper}>
-          <Button href={useBaseUrl("docs/quick-start")}>
+          <Button href={useBaseUrl("docs/")}>
             <Translate>Get Started</Translate>
           </Button>
-          <Button href={useBaseUrl("docs/")}>
+          <Button href={useBaseUrl("docs/tutorial/helm/")}>
             <Translate>Learn More</Translate>
           </Button>
         </div>

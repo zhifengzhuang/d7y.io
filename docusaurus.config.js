@@ -63,7 +63,6 @@ const config = {
         items: [
           {
             to: "docs/",
-            activeBasePath: "docs",
             label: "Documentation",
             position: "right",
           },
@@ -73,9 +72,9 @@ const config = {
             position: "right",
           },
           {
-            to: "community",
             label: "Community",
             position: "right",
+            href: "https://github.com/dragonflyoss/Dragonfly2#community",
           },
           {
             type: "localeDropdown",
@@ -91,11 +90,11 @@ const config = {
             items: [
               {
                 label: "Getting Started",
-                to: "/docs/quick-start",
+                to: "/docs/",
               },
               {
                 label: "Tutorial",
-                to: "/docs/tutorial",
+                to: "/docs/tutorial/helm",
               },
             ],
           },
