@@ -1,6 +1,6 @@
 ---
 id: manage-console
-title: Manage Console
+title: Manage 控制台
 ---
 
 Manager 控制台方便用户控制集群各模块服务，并且提供动态配置以及数据收集等功能。

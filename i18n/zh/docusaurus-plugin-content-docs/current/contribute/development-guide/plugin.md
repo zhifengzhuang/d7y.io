@@ -1,5 +1,5 @@
 ---
-id: development
+id: plugin
 title: WIP Plugin Develop Guide
 slug: /contribute/development-guide/plugin/
 ---

@@ -1,5 +1,5 @@
 ---
-id: development
+id: plugin-builder
 title: Dragonfly Plugin Builder
 slug: /contribute/development-guide/plugin-builder/
 ---

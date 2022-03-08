@@ -78,5 +78,13 @@
   "sidebar.docs.category.Containerd": {
     "message": "Containerd",
     "description": "The label for category Containerd in sidebar docs"
+  },
+  "sidebar.docs.category.Source": {
+    "message": "源码安装",
+    "description": "The label for category Source in sidebar docs"
+  },
+  "sidebar.docs.link.WIP katacoda": {
+    "message": "WIP katacoda",
+    "description": "The label for link WIP katacoda in sidebar docs, linking to https://www.katacoda.com/"
   }
 }
