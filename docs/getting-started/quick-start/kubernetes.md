@@ -128,3 +128,7 @@ Example output:
     "component": "streamPeerTask"
 }
 ```
+
+## Preheat
+
+To get the best out of Dragonfly, you can pull the image in advance by [preheat](../../reference/preheat.md)

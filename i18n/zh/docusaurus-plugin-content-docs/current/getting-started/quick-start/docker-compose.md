@@ -18,6 +18,7 @@ slug: /getting-started/quick-start/docker-compose/
 ## 步骤 1：下载并运行Dragonfly docker-compose
 
 > 国内用户可以考虑使用 [gitee 同步 github 仓库功能](https://gitee.com/projects/import/url) 加速下载
+> 如果是 Mac OS 可能会报错, 参考 [sed command with -i option failing on Mac, but works on Linux](https://stackoverflow.com/a/41416710)
 
 ```bash
 git clone https://github.com/dragonflyoss/Dragonfly2.git
@@ -100,3 +101,7 @@ docker exec dfdaemon grep "peer task done" /var/log/dragonfly/daemon/core.log
 > 提示：用于生成环境请记得修改用户名和密码
 
 更多信息参考 [Manager Console 文档](https://github.com/dragonflyoss/Dragonfly2/blob/main/docs/zh-CN/design/manager.md)
+
+## 步骤 6: 预热
+
+为了使用 Dragonfly 的最佳体验, 你可以通过 [预热](../../reference/preheat.md) 提前下拉镜像。

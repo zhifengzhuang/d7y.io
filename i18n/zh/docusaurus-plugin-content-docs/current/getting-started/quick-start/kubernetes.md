@@ -124,3 +124,7 @@ kubectl -n dragonfly-system exec -it ${pod_name} -- grep "peer task done" /var/l
     "component": "streamPeerTask"
 }
 ```
+
+## 预热
+
+为了使用 Dragonfly 的最佳体验, 你可以通过 [预热](../../reference/preheat.md) 提前下拉镜像。

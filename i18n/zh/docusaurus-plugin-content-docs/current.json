@@ -86,5 +86,9 @@
   "sidebar.docs.link.WIP katacoda": {
     "message": "WIP katacoda",
     "description": "The label for link WIP katacoda in sidebar docs, linking to https://www.katacoda.com/"
+  },
+  "sidebar.docs.category.Preheat": {
+    "message": "预热",
+    "description": "The label for category Preheat in sidebar docs"
   }
 }
