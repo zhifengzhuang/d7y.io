@@ -17,7 +17,7 @@ slug: /getting-started/quick-start/docker-compose/
 
 ## 步骤 1：下载并运行Dragonfly docker-compose
 
-> 国内用户可以考虑使用 [gitee 同步 github 仓库功能](https://gitee.com/projects/import/url) 加速下载
+> 国内用户可以考虑使用 [gitee 镜像库](https://gitee.com/mirrors/Dragonfly2) 加速下载
 > 如果是 Mac OS 可能会报错, 参考 [sed command with -i option failing on Mac, but works on Linux](https://stackoverflow.com/a/41416710)
 
 ```bash

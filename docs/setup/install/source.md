@@ -6,14 +6,223 @@ title: Source
 There are installation methods to install
 the executable files separately according to the modules.
 
-## Install separately
+## Prerequisites
 
-> Notice: First startup redis and mysql, The second, startup Manager, The third startup other component.
+| Required Software | Version Limit |
+|-------------------|---------------|
+| Git               | 1.9.1+        |
+| Golang            | 1.16.x        |
+| MySQL             | 5.6+          |
+| Redis             | 3.0+          |
+| Nginx             | 0.8+          |
 
-- [install-manager](./source/manager.md) is the installation instructions of manager
+## Install it separately by module
 
-- [install-client](./source/dfdaemon.md) is the installation instructions of dfdaemon
+### Download the precompiled binaries
 
-- [install-scheduler](./source/scheduler.md) is the installation instructions of scheduler
+1. Download a binary package of the cdn. You can download one of the latest builds for Dragonfly on the
+   [github releases page](https://github.com/dragonflyoss/Dragonfly2/releases)
 
-- [install-cdn](./source/cdn.md) is the installation instructions of CDN
+   > Note: v2.x-rc.x rc indicates the candidate version and is not recommended to be deployed in a production environment
+
+   ```bash
+   version=2.0.2
+
+   wget -o Dragonfly2_linux_amd64.tar.gz \
+      https://github.com/dragonflyoss/Dragonfly2/releases/download/v${version}/Dragonfly2_${version}_linux_amd64.tar.gz
+   ```
+
+2. Unzip the package.
+
+   ```bash
+   # Replace `/path/to/dragonfly` with the installation directory.
+   tar -zxf Dragonfly2_linux_amd64.tar.gz -C /path/to/dragonfly
+   ```
+
+3. Configuration environment
+
+   ```bash
+   export PATH="/path/to/dragonfly:$PATH"
+   ```
+
+### Build executable file by source code
+
+1. Obtain the source code of Dragonfly.
+
+   ```bash
+   git clone --recurse-submodules https://github.com/dragonflyoss/Dragonfly2.git
+   ```
+
+2. Enter the project directory.
+
+   ```bash
+   cd Dragonfly2
+   ```
+
+3. Compile the source code.
+
+   ```bash
+   # At the same time to build cdn scheduler dfget manager
+   make build
+
+   # Equal
+   make build-cdn && make build-scheduler && make build-dfget && make build-manager
+
+   # Build manager-console UI (optional)
+   make build-manager-console
+
+   # Install executable file to  /opt/dragonfly/bin/{manager,cdn,scheduler,dfget}
+   make install-manager
+   make install-cdn
+   make install-scheduler
+   make install-dfget
+
+   # Copy ./manager/console/build/dist to spec dir e.g. /opt/dragonfly/dist (optional)
+   cp -R ./manager/console/dist /opt/dragonfly/
+   ```
+
+4. Configuration environment
+
+   ```bash
+   export PATH="/opt/dragonfly/bin/:$PATH"
+   ```
+
+## Operation
+
+### Manager
+
+#### Startup Manager
+
+```bash
+# download manager configuration example
+# Notice: check and modify some config e.g. database.mysql,server.rest.publicPath ...
+wget -o /etc/dragonfly/manager.yaml \
+ https://raw.githubusercontent.com/dragonflyoss/Dragonfly2/main/docs/zh-CN/deployment/configuration/manager.yaml
+
+# View manager cli help docs
+manager --help
+
+# startup manager
+manager
+```
+
+After manager is installed, run the following commands to verify if **manager** is started,
+and if Port `8080` and `65003` is available.
+
+```bash
+telnet 127.0.0.1 8080
+telnet 127.0.0.1 65003
+```
+
+#### Manager Console
+
+Now you can open brower and visit console by `localhost:8080`.
+
+Console features preview reference document [console preview](../../reference/manage-console.md)。
+
+### CDN
+
+#### Startup cdn
+
+```bash
+# download cdn configuration example
+# Notice: check and modify some config e.g. base.manager ...
+wget -o /etc/dragonfly/cdn.yaml \
+ https://raw.githubusercontent.com/dragonflyoss/Dragonfly2/main/docs/zh-CN/deployment/configuration/cdn.yaml
+
+# View cdn cli help docs
+cdn --help
+
+# startup cdn
+cdn
+```
+
+#### Startup file server
+
+You can start a file server in any way. However, the following conditions must be met:
+
+- It must be rooted at `plugins.storagedriver[]name: disk.config.baseDir`
+  which is defined in the `/etc/dragonfly/cdn.yaml`.
+- It must listen on the port at `base.downloadPort` which is defined in the `/etc/dragonfly/cdn.yaml`.
+
+Let's take nginx as an example.
+
+1. Add the following configuration items to the Nginx configuration file.
+
+   ```conf
+   server {
+     # Must be `/etc/dragonfly/cdn.yaml`'s ${base.downloadPort}
+     listen 8001;
+     location / {
+        # Must be `/etc/dragonfly/cdn.yaml`'s ${plugins.storagedriver[]name: disk.config.baseDir}
+        root /Users/${USER_HOME}/ftp;
+     }
+   }
+   ```
+
+2. Start Nginx.
+
+   ```bash
+   sudo nginx
+   ```
+
+   After cdn is installed, run the following commands to verify if Nginx and **cdn** are started,
+   and if Port `8001` and `8003` are available.
+
+   ```bash
+   telnet 127.0.0.1 8001
+   telnet 127.0.0.1 8003
+   ```
+
+### Scheduler
+
+#### Startup scheduler
+
+```bash
+# download scheduler configuration example
+# Notice: check and modify some config e.g. job.enable,job.redis,manager.addr ...
+wget -o /etc/dragonfly/scheduler.yaml \
+ https://raw.githubusercontent.com/dragonflyoss/Dragonfly2/main/docs/zh-CN/deployment/configuration/scheduler.yaml
+
+# View scheduler cli help docs
+scheduler --help
+
+# Startup scheduler
+scheduler
+```
+
+After scheduler is installed, run the following commands to verify if **scheduler** is started,
+and if Port `8002` is available.
+
+```bash
+telnet 127.0.0.1 8002
+```
+
+### Dfget/Dfdaemon
+
+### Startup dfdaemon
+
+```bash
+# download dfget configuration example
+# Notice: check and modify some config e.g. scheduler.manager ...
+wget -o /etc/dragonfly/dfget.yaml \
+ https://raw.githubusercontent.com/dragonflyoss/Dragonfly2/main/docs/zh-CN/deployment/configuration/dfget.yaml
+
+# View dfget cli help docs
+dfget --help
+
+# View dfget daemon cli help docs
+dfget daemon --help
+
+# Startup dfget daemon mode
+dfget daemon
+```
+
+After dfget is installed, run the following commands to verify if **dfdaemon** is started,
+and if Port `65000`, `65001` and `65002` is available.
+
+```bash
+telnet 127.0.0.1 65000
+telnet 127.0.0.1 65001
+telnet 127.0.0.1 65002
+```
