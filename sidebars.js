@@ -18,6 +18,11 @@ module.exports = {
       items: [
         'getting-started/introduction',
         {
+          type: 'link',
+          label: 'Katacoda Online Tutorial',
+          href: 'https://www.katacoda.com/d7y/',
+        },
+        {
           type: 'category',
           label: 'Quick Start',
           link: {
