@@ -33,7 +33,7 @@ title: 架构
 
 ## 架构设计
 
-![arch](../../resource/concetps/arch.png)
+![arch](../../resource/concepts/arch.png)
 
 ## 子系统功能
 

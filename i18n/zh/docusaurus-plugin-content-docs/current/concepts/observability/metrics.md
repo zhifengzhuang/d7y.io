@@ -54,6 +54,10 @@ GRPC 数据指标基于 [go-grpc-prometheus](https://github.com/grpc-ecosystem/g
 | dragonfly_scheduler_peer_task_total                          | biz_tag, type                                       | counter   | 下载任务总个数。      |
 | dragonfly_scheduler_peer_task_download_duration_milliseconds | biz_tag                                             | histogram | 任务下载耗时。        |
 | dragonfly_scheduler_concurrent_schedule_total                |                                                     | gauge     | 并行调度任务个数。    |
+| dragonfly_scheduler_stat_task_total                          |                                                     | counter   | 查询任务总次数。      |
+| dragonfly_scheduler_stat_task_failure_total                  |                                                     | counter   | 查询任务失败次数。    |
+| dragonfly_scheduler_announce_task_total                      |                                                     | counter   | 声明任务总次数。      |
+| dragonfly_scheduler_announce_task_failure_total              |                                                     | counter   | 声明任务失败次数。    |
 
 <!-- markdownlint-restore -->
 
