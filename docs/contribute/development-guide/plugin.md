@@ -4,13 +4,160 @@ title: Plugin Develop
 slug: /contribute/development-guide/plugin/
 ---
 
-All compiled plugins need to place in `/usr/local/dragonfly/plugins/`.
+There are two types plugin in dragonfly:
 
-## Plugin Design {#plugin-design}
+* In-tree plugin: The source code need be placed in dragonfly and then rebuild all components
 
-Dragonfly2 use golang plugin to build its plugins, refer: [https://pkg.go.dev/plugin#section-documentation](https://pkg.go.dev/plugin#section-documentation).
+* Out-of-tree plugin: The source code can be out of dragonfly code, just need to rebuild with same golang compile environment
 
-## Resource Plugin for CDN and Dfget {#resource-plugin-for-cdn-and-dfget}
+In-tree plugin is easy to develop, build and run. New plugin users should use this mechanism to extend dragonfly.
+
+## In-tree Plugin {#in-tree-plugin}
+
+> In-tree plugin is working in progress, only supported in main branch.
+
+### In-tree Resource Plugin for CDN and Dfget {#in-tree-resource-plugin-for-cdn-and-dfget}
+
+The resource plugin is used to download custom resource like `dfget -u dfs://host:56001/path/to/resource`.
+
+All resource plugins need to implement `d7y.io/dragonfly/v2/pkg/source.ResourceClient`
+and register it to manager
+
+<!-- markdownlint-disable -->
+
+```golang
+// ResourceClient defines the API interface to interact with source.
+type ResourceClient interface {
+	// GetContentLength get length of resource content
+	// return source.UnknownSourceFileLen if response status is not StatusOK and StatusPartialContent
+	GetContentLength(request *Request) (int64, error)
+
+	// IsSupportRange checks if resource supports breakpoint continuation
+	// return false if response status is not StatusPartialContent
+	IsSupportRange(request *Request) (bool, error)
+
+	// IsExpired checks if a resource received or stored is the same.
+	// return false and non-nil err to prevent the source from exploding if
+	// fails to get the result, it is considered that the source has not expired
+	IsExpired(request *Request, info *ExpireInfo) (bool, error)
+
+	// Download downloads from source
+	Download(request *Request) (*Response, error)
+
+	// GetLastModified gets last modified timestamp milliseconds of resource
+	GetLastModified(request *Request) (int64, error)
+}
+```
+
+<!-- markdownlint-restore -->
+
+### In-tree Example Code {#in-tree-example-code}
+
+#### 1. In-tree Plugin code {#in-tree-plugin-code}
+
+Example code `Dragonfly2/pkg/source/clients/example/dfs.go`:
+
+<!-- markdownlint-disable -->
+
+```golang
+
+package example
+
+import (
+	"bytes"
+	"io"
+
+	"d7y.io/dragonfly/v2/pkg/source"
+)
+
+const scheme = "dfs"
+
+var data = "hello world"
+
+type client struct {
+}
+
+func init() {
+	if err := source.Register(scheme, New(), nil); err != nil {
+		panic(err)
+	}
+}
+
+func New() source.ResourceClient {
+	return &client{}
+}
+
+func (c *client) GetContentLength(request *source.Request) (int64, error) {
+	return int64(len(data)), nil
+}
+
+func (c *client) IsSupportRange(request *source.Request) (bool, error) {
+	return false, nil
+}
+
+func (c *client) IsExpired(request *source.Request, info *source.ExpireInfo) (bool, error) {
+	panic("implement me")
+}
+
+func (c *client) Download(request *source.Request) (*source.Response, error) {
+	return source.NewResponse(io.NopCloser(bytes.NewBufferString(data))), nil
+}
+
+func (c *client) GetLastModified(request *source.Request) (int64, error) {
+	panic("implement me")
+}
+
+```
+
+<!-- markdownlint-restore -->
+
+#### 2. Register to client manager {#register-to-client-manager}
+
+Example code `pkg/source/loader/dfs.go`:
+
+<!-- markdownlint-disable -->
+
+```golang
+package loader
+
+import (
+	_ "d7y.io/dragonfly/v2/pkg/source/clients/example" // Register dfs client
+)
+```
+<!-- markdownlint-restore -->
+
+#### 3. Build and list plugins {#build-and-list-plugins}
+
+Build manually:
+
+```shell
+# build dfget and cdn
+make build-dfget build-cdn
+# verify with dfget and cdn plugin command
+bin/`go env GOOS`_`go env GOARCH`/dfget plugin
+bin/`go env GOOS`_`go env GOARCH`/cdn plugin
+```
+
+Example output:
+
+```text
+source plugin: dfs, location: in-tree
+source plugin: http, location: in-tree
+source plugin: https, location: in-tree
+source plugin: oss, location: in-tree
+search plugin in /Users/d7y/.dragonfly/plugins
+no out of tree plugin found
+```
+
+The `source plugin: dfs, location: in-tree` is the new plugin we added.
+
+## Out-of-tree Plugin {#out-of-tree-plugin}
+
+All compiled out-of-tree plugins need to place in `/usr/local/dragonfly/plugins/`.
+
+Dragonfly2 use golang plugin to build its out-of-tree plugins, refer: [https://pkg.go.dev/plugin#section-documentation](https://pkg.go.dev/plugin#section-documentation).
+
+### Resource Plugin for CDN and Dfget {#resource-plugin-for-cdn-and-dfget}
 
 The resource plugin is used to download custom resource like `dfget -u d7yfs://host:56001/path/to/resource`.
 
@@ -28,32 +175,32 @@ and a function
 ```golang
 // ResourceClient defines the API interface to interact with source.
 type ResourceClient interface {
-    // GetContentLength get length of resource content
-    // return source.UnknownSourceFileLen if response status is not StatusOK and StatusPartialContent
-    GetContentLength(request *Request) (int64, error)
+	// GetContentLength get length of resource content
+	// return source.UnknownSourceFileLen if response status is not StatusOK and StatusPartialContent
+	GetContentLength(request *Request) (int64, error)
 
-    // IsSupportRange checks if resource supports breakpoint continuation
-    // return false if response status is not StatusPartialContent
-    IsSupportRange(request *Request) (bool, error)
+	// IsSupportRange checks if resource supports breakpoint continuation
+	// return false if response status is not StatusPartialContent
+	IsSupportRange(request *Request) (bool, error)
 
-    // IsExpired checks if a resource received or stored is the same.
-    // return false and non-nil err to prevent the source from exploding if
-    // fails to get the result, it is considered that the source has not expired
-    IsExpired(request *Request, info *ExpireInfo) (bool, error)
+	// IsExpired checks if a resource received or stored is the same.
+	// return false and non-nil err to prevent the source from exploding if
+	// fails to get the result, it is considered that the source has not expired
+	IsExpired(request *Request, info *ExpireInfo) (bool, error)
 
-    // Download downloads from source
-    Download(request *Request) (*Response, error)
+	// Download downloads from source
+	Download(request *Request) (*Response, error)
 
-    // GetLastModified gets last modified timestamp milliseconds of resource
-    GetLastModified(request *Request) (int64, error)
+	// GetLastModified gets last modified timestamp milliseconds of resource
+	GetLastModified(request *Request) (int64, error)
 }
 ```
 
 <!-- markdownlint-restore -->
 
-### Example Code {#example-code}
+#### Example Code {#example-code}
 
-#### 1. main.go {#1-maingo}
+##### 1. main.go {#1-maingo}
 
 <!-- markdownlint-disable -->
 
@@ -120,7 +267,7 @@ func DragonflyPluginInit(option map[string]string) (interface{}, map[string]stri
 
 <!-- markdownlint-restore -->
 
-#### 2. go.mod {#2-gomod}
+##### 2. go.mod {#2-gomod}
 
 <!-- markdownlint-disable -->
 
@@ -147,12 +294,12 @@ replace d7y.io/dragonfly/v2 => /Dragonfly2
 
 <!-- markdownlint-restore -->
 
-### Build {#build}
+#### Build {#build}
 
 > We have created a plugin builder in docker, follow [this document](./plugin-builder.md).
 > With the plugin builder, `go.mod` will be ignored.
 
-#### 1. Build plugin with target Dragonfly2 commit {#1-build-plugin-with-target-dragonfly2-commit}
+##### 1. Build plugin with target Dragonfly2 commit {#1-build-plugin-with-target-dragonfly2-commit}
 
 > Update `D7Y_COMMIT` in the following script.
 
@@ -179,7 +326,7 @@ go build -ldflags="-X main.buildTime=${BUILD_TIME} -X main.buildCommit=${BUILD_C
 
 <!-- markdownlint-restore -->
 
-#### 2. Validate plugin {#2-validate-plugin}
+##### 2. Validate plugin {#2-validate-plugin}
 
 ```shell
 /Dragonfly2/bin/linux_amd64/dfget plugin
