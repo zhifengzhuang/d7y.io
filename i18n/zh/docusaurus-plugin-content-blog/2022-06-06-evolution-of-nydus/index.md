@@ -19,6 +19,9 @@ Nydus 镜像服务的下一代容器镜像分发方案逐渐清晰起来。
 
 本文将从 Nydus 架构回顾、RAFS v6 镜像格式和 EROFS over Fscache 按需加载技术三个角度来介绍该方案的演变历程。
 
+为了解更多详情，请关注[Nydus](https://github.com/dragonflyoss/image-service)。
+请参考[用户手册](https://github.com/dragonflyoss/image-service/blob/master/docs/nydus-fscache.md) 以使用 Nydus 的上述特性.
+
 ### Nydus 架构回顾
 
 一句话总结一下，Nydus 镜像加速服务是一种优化了现有的 OCIv1 容器镜像架构，设计了 RAFS (Registry Acceleration File System) 磁盘格式，最终呈现为一种 *文件系统* 的容器镜像格式的镜像加速实现。

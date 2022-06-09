@@ -30,6 +30,9 @@ of container images.
 This article will introduce the evolution of Nydus from three perspectives: review of Nydus architecture, RAFS v6 image format
 and "EROFS over Fscache" on-demand loading technology.
 
+Please refer to [Nydus](https://github.com/dragonflyoss/image-service) for more details of this project.
+Now you can experience all these new features with this [user guide](https://github.com/dragonflyoss/image-service/blob/master/docs/nydus-fscache.md).
+
 ### Nydus Architecture Outline
 
 In one word, Nydus is a *file system* based image acceleration service that designs the RAFS (Registry Acceleration
