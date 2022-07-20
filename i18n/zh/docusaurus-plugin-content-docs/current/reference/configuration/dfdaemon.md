@@ -223,6 +223,24 @@ storage:
 # 代理服务配置文件，也可以使用下面的配置格式
 # proxy: ""
 
+# 健康检查服务选项
+health:
+  security:
+    insecure: true
+    cacert: ''
+    cert: ''
+    key: ''
+    tlsVerify: false
+  tcpListen:
+    # 监听地址
+    listen: 0.0.0.0
+    # 监听端口
+    # 指定固定端口，也可以指定端口范围
+    port: 40901
+#   port:
+#     start: 40901
+#     end: 40901
+
 # 代理服务详细选项
 proxy:
   # 哈希 URL 的时候的过滤选项

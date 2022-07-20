@@ -228,6 +228,25 @@ storage:
 # proxy service config file location or detail config
 # proxy: ""
 
+# health service option
+health:
+  security:
+    insecure: true
+    cacert: ''
+    cert: ''
+    key: ''
+    tlsVerify: false
+  tcpListen:
+    # listen address
+    listen: 0.0.0.0
+    # listen port, daemon will try to listen
+    # when this port is not available, daemon will try next port
+    port: 40901
+    # if want to limit upper port, please use blow format
+#   port:
+#     start: 40901
+#     end: 40901
+
 # proxy service detail option
 proxy:
   # filter for hash url.
