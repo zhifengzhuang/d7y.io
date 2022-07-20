@@ -225,9 +225,6 @@ storage:
   # set to ture for reusing underlying storage for same task id
   multiplex: true
 
-# proxy service config file location or detail config
-# proxy: ""
-
 # health service option
 health:
   security:

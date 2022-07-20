@@ -220,9 +220,6 @@ storage:
   # 相同 task id 的 peer task 是否复用缓存
   multiplex: true
 
-# 代理服务配置文件，也可以使用下面的配置格式
-# proxy: ""
-
 # 健康检查服务选项
 health:
   security:
