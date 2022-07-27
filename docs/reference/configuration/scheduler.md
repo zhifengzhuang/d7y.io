@@ -17,6 +17,10 @@ server:
   # host: localhost
   # port is the ip and port scheduler server listens on
   port: 8002
+  # workHome is working directory
+  # in linux, default value is /usr/local/dragonfly
+  # in macos(just for testing), default value is /Users/$USER/.dragonfly
+  workHome: ''
   # cacheDir is dynconfig cache storage directory
   # in linux, default value is /var/cache/dragonfly
   # in macos(just for testing), default value is /Users/$USER/.dragonfly/cache

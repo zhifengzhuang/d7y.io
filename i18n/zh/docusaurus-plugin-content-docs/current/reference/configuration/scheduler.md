@@ -16,6 +16,10 @@ server:
   # host: localhost
   # 服务监听端口
   port:
+  # 服务工作目录
+  # linux 上默认目录 /usr/local/dragonfly
+  # macos(仅开发、测试), 默认目录是 /Users/$USER/.dragonfly
+  workHome: ''
   # 服务的动态配置缓存目录
   # linux 上默认目录 /var/cache/dragonfly
   # macos(仅开发、测试), 默认目录是 /Users/$USER/.dragonfly/cache
