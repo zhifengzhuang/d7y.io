@@ -13,9 +13,9 @@ slug: /getting-started/quick-start/docker-compose/
 
 ## 前提条件
 
-本文档所有操作步骤均使用 docker 容器在同一台机器上完成，所以请确保您的机器上已经安装并启动 docker 容器引擎及安装docker-compose。
+本文档所有操作步骤均使用 docker 容器在同一台机器上完成，所以请确保您的机器上已经安装并启动 docker 容器引擎及安装 docker-compose。
 
-## 步骤 1：下载并运行Dragonfly docker-compose
+## 步骤 1：下载并运行 Dragonfly docker-compose
 
 > 国内用户可以考虑使用 [gitee 镜像库](https://gitee.com/mirrors/Dragonfly2) 加速下载
 > 如果是 Mac OS 可能会报错, 参考 [sed command with -i option failing on Mac, but works on Linux](https://stackoverflow.com/a/41416710)
@@ -32,7 +32,7 @@ export IP=<host ip>
 
 我们需要修改 Docker Daemon 配置，通过 mirror 方式来使用 Dragonfly 进行镜像的拉取。
 
-在配置文件 `/etc/docker/daemon.json` 中添加或更新如下配置项：
+在配置文件  `/etc/docker/daemon.json`  中添加或更新如下配置项：
 
 ```bash
 {
@@ -73,20 +73,28 @@ docker exec dfdaemon grep "peer task done" /var/log/dragonfly/daemon/core.log
 如果以上命令有诸如
 
 ```json
-{"level":"info","ts":"2022-02-23 06:06:21.506","caller":"peer/peertask_conductor.go:1167","msg":"peer task done, cost: 16052ms","peer":"172.17.189.172-1-249fa302-f107-444d-b03e-103f54b2fa4f","task":"708fff474e9885df7a9efa95b607618478912367f70a1aeb2753cfb00dfb28f7","component":"PeerTask"}
+{
+  "level": "info",
+  "ts": "2022-02-23 06:06:21.506",
+  "caller": "peer/peertask_conductor.go:1167",
+  "msg": "peer task done, cost: 16052ms",
+  "peer": "172.17.189.172-1-249fa302-f107-444d-b03e-103f54b2fa4f",
+  "task": "708fff474e9885df7a9efa95b607618478912367f70a1aeb2753cfb00dfb28f7",
+  "component": "PeerTask"
+}
 ```
 
 格式化后类似
 
 ```json
 {
-    "level": "info",
-    "ts": "2022-02-23 06:06:21.506",
-    "caller": "peer/peertask_conductor.go:1167",
-    "msg": "peer task done, cost: 16052ms",
-    "peer": "172.17.189.172-1-249fa302-f107-444d-b03e-103f54b2fa4f",
-    "task": "708fff474e9885df7a9efa95b607618478912367f70a1aeb2753cfb00dfb28f7",
-    "component": "PeerTask"
+  "level": "info",
+  "ts": "2022-02-23 06:06:21.506",
+  "caller": "peer/peertask_conductor.go:1167",
+  "msg": "peer task done, cost: 16052ms",
+  "peer": "172.17.189.172-1-249fa302-f107-444d-b03e-103f54b2fa4f",
+  "task": "708fff474e9885df7a9efa95b607618478912367f70a1aeb2753cfb00dfb28f7",
+  "component": "PeerTask"
 }
 ```
 
