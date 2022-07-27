@@ -65,6 +65,7 @@ database:
     host: dragonfly
     port: 6379
     db: 0
+
 # manager server cache
 # cache:
 #   # redis cache configure
@@ -78,7 +79,22 @@ database:
 #     # cache ttl configure
 #     ttl: 10s
 
-# enable prometheus metrics
+# object storage service
+# objectStorage:
+#  # enable object storage
+#  enable: true
+#  # object storage name of type, it can be s3 or oss
+#  name: s3
+#  # storage region
+#  region: ''
+#  # datacenter endpoint
+#  endpoint: ''
+#  # access key ID
+#  accessKey: ''
+#  # access key secret
+#  secretKey: ''
+
+# prometheus metrics
 # metrics:
 #  # manager enable metrics service
 #  enable: false

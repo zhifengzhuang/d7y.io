@@ -62,6 +62,7 @@ database:
     host: dragonfly
     port: 6379
     db: 0
+
 # 缓存配置
 # cache:
 #   # redis 缓存配置
@@ -75,7 +76,22 @@ database:
 #     # ttl 配置
 #     ttl: 10s
 
-# 开启数据收集服务
+# 对象存储服务
+# objectStorage:
+#  # 开启对象存储服务
+#  enable: true
+#  # 对象存储 Backend 类型，支持 s3 和 oss
+#  name: s3
+#  # 对象存储 Backend 区域
+#  region: ''
+#  # 对象存储 Backend 地址
+#  endpoint: ''
+#  # access key
+#  accessKey: ''
+#  # access key 的密钥
+#  secretKey: ''
+
+# 数据收集服务
 # metrics:
 #  # 启动数据收集服务
 #  enable: false

@@ -203,6 +203,29 @@ upload:
 #     start: 65020
 #     end: 65029
 
+# object storage service
+objectStorage:
+  # enable object storage service
+  enable: false
+  # filter is used to generate a unique Task ID by
+  # filtering unnecessary query params in the URL,
+  # it is separated by & character.
+  # when filter: "Expires&Signature&ns", for example:
+  #  http://localhost/xyz?Expires=111&Signature=222&ns=docker.io and http://localhost/xyz?Expires=333&Signature=999&ns=docker.io
+  # is same task
+  filter: 'Expires&Signature&ns'
+  # maxReplicas is the maximum number of replicas of an object cache in seed peers.
+  maxReplicas: 3
+  # object storage service security option
+  security:
+    insecure: true
+    tlsVerify: true
+  tcpListen:
+    # listen address
+    listen: 0.0.0.0
+    # listen port
+    port: 65004
+
 # peer task storage option
 storage:
   # task data expire time

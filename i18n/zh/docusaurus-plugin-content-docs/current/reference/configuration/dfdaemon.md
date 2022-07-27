@@ -198,6 +198,27 @@ upload:
 #     start: 65020
 #     end: 65029
 
+# 对象存储服务
+objectStorage:
+  # 开启对象存储服务
+  enable: false
+  # 通过 filter 参数过滤 url 中的 querystring 从而生成唯一的 Task ID
+  # 例如：defaultFilter: "Expires&Signature&ns":
+  #  http://localhost/xyz?Expires=111&Signature=222&ns=docker.io and http://localhost/xyz?Expires=333&Signature=999&ns=docker.io
+  # 是相同的 task。
+  filter: 'Expires&Signature&ns'
+  # 最大副本数量，上传对象文件的时候，设置最多复制到 Seed Peer 上的副本数量。
+  maxReplicas: 3
+  # 对象存储服务安全设置
+  security:
+    insecure: true
+    tlsVerify: true
+  tcpListen:
+    # 监听地址
+    listen: 0.0.0.0
+    # 监听端口
+    port: 65004
+
 # peer task 存储选项
 storage:
   # task data 过期时间
