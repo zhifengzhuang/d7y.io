@@ -18,8 +18,8 @@
     "version": "./scripts/version.sh"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.20",
-    "@docusaurus/preset-classic": "^2.0.0-beta.20",
+    "@docusaurus/core": "^2.0.0-rc.1",
+    "@docusaurus/preset-classic": "^2.0.0-rc.1",
     "@mdx-js/react": "^1.6.21",
     "acorn": "^8.7.1",
     "clsx": "^1.1.1",

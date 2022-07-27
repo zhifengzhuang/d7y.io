@@ -47,7 +47,7 @@ standard solution in cloud native architectures.
 ### Scheduler {#scheduler}
 
 - Based on the multi-feature intelligent scheduling system selects the optimal parent peer.
-- Build a scheduling tree for the P2P cluster.
+- Build a scheduling directed acyclic graph for the P2P cluster.
 - Remove abnormal peer based on peer multi-feature evaluation results.
 - In the case of scheduling failure, notice peer back-to-source download.
 

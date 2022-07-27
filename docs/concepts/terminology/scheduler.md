@@ -9,7 +9,7 @@ and triggers the seed peer back-to-source download or dfdaemon back-to-source do
 ## Features {#features}
 
 - Based on the multi-feature intelligent scheduling system selects the optimal parent peer.
-- Build a scheduling tree for the P2P cluster.
+- Build a scheduling directed acyclic graph for the P2P cluster.
 - Remove abnormal peer based on peer multi-feature evaluation results.
 - In the case of scheduling failure, notice peer back-to-source download.
 
@@ -21,9 +21,9 @@ Scheduler maintains task, peer and host resources.
 - Host: host information for dfdaemon, host and peer have a `1:N` relationship
 - Task: a download task, task and peer have a `1:N` relationship
 
-The scheduling process is actually to build a tree according to the peer's load.
+The scheduling process is actually to build a directed acyclic graph according to the peer's load.
 
-![scheduler-tree](../../resource/architecture/scheduler-tree.jpg)
+![scheduler-dag](../../resource/architecture/scheduler-dag.png)
 
 ## Peer State Machine {#peer-state-machine}
 
