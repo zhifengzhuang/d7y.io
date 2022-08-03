@@ -158,7 +158,7 @@ download:
     unixListen:
       # linux 上默认路径为 /var/run/dfdaemon.sock
       # macos(仅开发、测试), 默认目录是 /tmp/dfdaemon.sock
-      socket: /var/run/dfdaemon.sock
+      socket: ''
   # peer grpc 选项
   # peer 之间通信和下载配置
   peerGRPC:
