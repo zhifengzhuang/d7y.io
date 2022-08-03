@@ -66,8 +66,37 @@ dfget [command]
 
 ### 例子
 
+#### 使用 HTTP 协议下载
+
 ```text
-dfget --schedulers 127.0.0.1:8002 -O /path/to/output -u "http://example.com/object"
+dfget -O /path/to/output -u "http://example.com/object"
+```
+
+#### 使用 OSS 协议下载
+
+蜻蜓支持从阿里云对象存储服务（OSS）直接下载对象。直接使用 `dfget` 命令即可。
+
+示例中所有的参数都是必须。
+
+Header 解释:
+
+`Endpoint`: OSS Endpoint, 参考: [Alibaba Cloud](https://www.alibabacloud.com/help/en/object-storage-service/latest/regions-and-endpoints)
+
+`AccessKeyID`: OSS AccessKey ID
+
+`AccessKeySecret`: OSS AccessKey Secret
+
+`--filter "Expires&Signature"` 是用来为相同对象在不同机器上下载的时候生成唯一任务 ID 使用的。
+
+`oss://bucket/path/to/object` 是指定桶和路径的.
+
+```shell
+dfget --header "Endpoint: https://oss-cn-hangzhou.aliyuncs.com" \
+    --header "AccessKeyID: id" \
+    --header "AccessKeySecret: secret" \
+    --url oss://bucket/path/to/object \
+    --output /path/to/output \
+    --filter "Expires&Signature"
 ```
 
 ### 日志

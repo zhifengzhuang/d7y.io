@@ -69,8 +69,39 @@ dfget [command]
 
 ### Example {#example}
 
+#### Download with HTTP protocol {#downlad-with-http}
+
 ```shell
-dfget --schedulers 127.0.0.1:8002 -O /path/to/output -u "http://example.com/object"
+dfget -u "http://example.com/object" -O /path/to/output
+```
+
+#### Download with OSS protocol {#downlad-with-oss}
+
+Dragonfly supports download objects from Alibaba Cloud Object Storage Service (OSS).
+You can download via `dfget` command.
+
+All arguments is necessary to download from private OSS bucket.
+
+Header explain:
+
+`Endpoint`: OSS Endpoint, refer: [Alibaba Cloud](https://www.alibabacloud.com/help/en/object-storage-service/latest/regions-and-endpoints)
+
+`AccessKeyID`: OSS AccessKey ID
+
+`AccessKeySecret`: OSS AccessKey Secret
+
+`--filter "Expires&Signature"` is used for generating unique task id for same object
+in different machines.
+
+`oss://bucket/path/to/object` is the object bucket and path.
+
+```shell
+dfget --header "Endpoint: https://oss-cn-hangzhou.aliyuncs.com" \
+    --header "AccessKeyID: id" \
+    --header "AccessKeySecret: secret" \
+    --url oss://bucket/path/to/object \
+    --output /path/to/output \
+    --filter "Expires&Signature"
 ```
 
 ### Log configuration {#log-configuration}

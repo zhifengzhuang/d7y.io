@@ -14,7 +14,7 @@ title: Roadmap
   - Add actions such as lint and test.
   - Add development documentation.
   - Add dynamic configurations.
-  - Added P2P data visualization.
+  - Add P2P data visualization.
 - Provides initial installation page.
 - Optimized calculations to match scheduler cluster rules.
 - Common configurations are managed dynamically through the manager.
