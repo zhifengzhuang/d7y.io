@@ -138,6 +138,8 @@ download:
   concurrent:
     # thresholdSize indicates the threshold to download pieces concurrently
     thresholdSize: 10M
+    # thresholdSpeed indicates the threshold download speed to download pieces concurrently
+    thresholdSpeed: 2M
     # goroutineCount indicates the concurrent goroutine count for every task
     goroutineCount: 4
     # initBackoff second for every piece failed, default: 0.5

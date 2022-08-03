@@ -135,6 +135,8 @@ download:
   concurrent:
     # 开启并发的阈值，大于此值则使用并发方式回源
     thresholdSize: 10M
+    # 开启并发的下载速度阈值，小于此值则使用并发方式回源
+    thresholdSpeed: 2M
     # 每个任务并发回源的协程数量
     goroutineCount: 4
     # 初次失败等待时间，单位：秒，默认是 0.5 秒
