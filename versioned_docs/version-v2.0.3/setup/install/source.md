@@ -66,7 +66,7 @@ the executable files separately according to the modules.
    make build
 
    # Equal
-   make make build-scheduler && make build-dfget && make build-manager
+   make build-scheduler && make build-dfget && make build-manager
 
    # Build manager-console UI (optional)
    make build-manager-console

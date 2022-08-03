@@ -64,7 +64,7 @@ title: 源码安装
    make build
 
    # 等同于
-   make make build-scheduler && make build-dfget && make build-manager
+   make build-scheduler && make build-dfget && make build-manager
 
    # 构建 manager-console UI (可选)
    make build-manager-console
