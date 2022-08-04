@@ -59,7 +59,7 @@ jaeger: ''
 scheduler:
   manager:
     # 通过 manager 接口动态获取 scheduler 列表
-    enable: false
+    enable: true
     # manager 服务地址
     netAddrs:
       - type: tcp
@@ -82,9 +82,9 @@ scheduler:
   # 是否禁用回源，禁用回源后，在调度失败时不在 daemon 回源，直接返错
   disableAutoBackSource: false
   # 调度器地址实例
-  netAddrs:
-    - type: tcp
-      addr: scheduler-service:8002
+  # netAddrs:
+  #  - type: tcp
+  #    addr: scheduler-service:8002
 
 # 用于注册到调度器的 daemon 信息
 host:

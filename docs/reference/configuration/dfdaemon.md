@@ -61,7 +61,7 @@ jaeger: ''
 scheduler:
   manager:
     # get scheduler list dynamically from manager
-    enable: false
+    enable: true
     # manager service addresses
     netAddrs:
       - type: tcp
@@ -84,9 +84,9 @@ scheduler:
   # when true, only scheduler says back source, daemon can back source
   disableAutoBackSource: false
   # below example is a stand address
-  netAddrs:
-    - type: tcp
-      addr: scheduler-service:8002
+  # netAddrs:
+  #  - type: tcp
+  #    addr: scheduler-service:8002
 
 # current host info used for scheduler
 host:
