@@ -76,10 +76,10 @@ Flags:
 
 ```shell
 # Upload baz.jpg image to /bar/foo/baz.jpg in S3 or OSS dragonfly bucket.
-dfstore cp dfs://dragonfly/bar/foo/baz.jpg ./baz.jpg
+dfstore cp ./baz.jpg dfs://dragonfly/bar/foo/baz.jpg
 
 # Download baz.jpg image from /bar/foo/baz.jpg in S3 or OSS `dragonfly` bucket.
-dfstore cp ./baz.jpg dfs://dragonfly/bar/foo/baz.jpg
+dfstore cp dfs://dragonfly/bar/foo/baz.jpg ./baz.jpg
 
 # Delete /bar/foo/baz.jpg image in S3 or OSS dragonfly bucket.
 dfstore rm dfs://dragonfly/bar/foo/baz.jpg

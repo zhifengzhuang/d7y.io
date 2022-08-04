@@ -74,10 +74,10 @@ Flags:
 
 ```shell
 # 上传 baz.jpg 图片到 S3 或 OSS 的 dragonfly 桶中的路径 /bar/foo/baz.jpg。
-dfstore cp dfs://dragonfly/bar/foo/baz.jpg ./baz.jpg
+dfstore cp ./baz.jpg dfs://dragonfly/bar/foo/baz.jpg
 
 # 下载 baz.jpg 图片从 S3 或 OSS 的 dragonfly 桶中的路径 /bar/foo/baz.jpg。
-dfstore cp ./baz.jpg dfs://dragonfly/bar/foo/baz.jpg
+dfstore cp dfs://dragonfly/bar/foo/baz.jpg ./baz.jpg
 
 # 删除 S3 或 OSS 的 dragonfly 桶中的 /bar/foo/baz.jpg 图片。
 dfstore rm dfs://dragonfly/bar/foo/baz.jpg
