@@ -24,8 +24,6 @@ server:
   rest:
     # stand address
     addr: :8080
-  # front-end console resource path
-  # publicPath: /dist
 
 # database info used for server
 database:

@@ -65,16 +65,10 @@ title: 源码安装
    # 等同于
    make build-scheduler && make build-dfget && make build-manager
 
-   # 构建 manager-console UI (可选)
-   make build-manager-console
-
    # 安装二进制文件到 /opt/dragonfly/bin/{manager,scheduler,dfget}
    make install-manager
    make install-scheduler
    make install-dfget
-
-   # 复制 ./manager/console/build/dist 到 指定目录 e.g. /opt/dragonfly/dist (可选)
-   cp -R ./manager/console/dist /opt/dragonfly/
    ```
 
 4. 配置环境变量
@@ -94,7 +88,7 @@ title: 源码安装
 
 ```bash
 # 下载 manager 配置样例
-# 注意检查并修改样例配置文件，比如: database.mysql,server.rest.publicPath ...
+# 注意检查并修改样例配置文件，比如: database.mysql
 
 # 查看 manager cli 帮助文档
 manager --help

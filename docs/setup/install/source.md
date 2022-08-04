@@ -67,16 +67,10 @@ the executable files separately according to the modules.
    # Equal
    make build-scheduler && make build-dfget && make build-manager
 
-   # Build manager-console UI (optional)
-   make build-manager-console
-
    # Install executable file to  /opt/dragonfly/bin/{manager,scheduler,dfget}
    make install-manager
    make install-scheduler
    make install-dfget
-
-   # Copy ./manager/console/build/dist to spec dir e.g. /opt/dragonfly/dist (optional)
-   cp -R ./manager/console/dist /opt/dragonfly/
    ```
 
 4. Configuration environment
@@ -97,7 +91,7 @@ and the default path is `$HOME/.dragonfly/config/manager.yaml` in darwin. Please
 
 ```bash
 # Configure manager yaml file
-# Notice: check and modify some config e.g. database.mysql,server.rest.publicPath ...
+# Notice: check and modify some config e.g. database.mysql
 
 # View manager cli help docs
 manager --help
