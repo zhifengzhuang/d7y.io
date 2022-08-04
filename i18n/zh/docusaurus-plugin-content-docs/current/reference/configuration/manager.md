@@ -56,10 +56,18 @@ database:
   #   insecureSkipVerify: true
   # redis 配置
   redis:
-    password: dragonfly
+    # 服务地址
     host: dragonfly
+    # 服务端口
     port: 6379
-    db: 0
+    # 密码
+    password: dragonfly
+    # cache 数据库
+    cacheDB: 0
+    # broker 数据库
+    brokerDB: 1
+    # backend 数据库
+    backendDB: 2
 
 # 缓存配置
 # cache:

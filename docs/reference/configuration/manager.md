@@ -59,10 +59,18 @@ database:
   #   insecureSkipVerify: true
   # redis configure
   redis:
-    password: dragonfly
+    # host
     host: dragonfly
+    # port
     port: 6379
-    db: 0
+    # password
+    password: dragonfly
+    # cacheDB
+    cacheDB: 0
+    # brokerDB
+    brokerDB: 1
+    # backendDB
+    backendDB: 2
 
 # manager server cache
 # cache:
