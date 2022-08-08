@@ -65,8 +65,8 @@ database:
     port: 6379
     # password
     password: dragonfly
-    # cacheDB
-    cacheDB: 0
+    # DB
+    db: 0
     # brokerDB
     brokerDB: 1
     # backendDB

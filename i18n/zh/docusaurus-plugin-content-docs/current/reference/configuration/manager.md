@@ -62,8 +62,8 @@ database:
     port: 6379
     # 密码
     password: dragonfly
-    # cache 数据库
-    cacheDB: 0
+    # 数据库
+    db: 0
     # broker 数据库
     brokerDB: 1
     # backend 数据库
