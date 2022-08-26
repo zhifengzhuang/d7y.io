@@ -101,9 +101,18 @@ objectStorage:
 
 ### 步骤 3: Peer 开启对象存储服务
 
-在 Dfdameon 的配置中开启 Peer 的对象存储服务。
+在 Dfdameon 的配置中开启 Peer 的对象存储服务和动态拉取 Manager 服务。
 
 ```yaml
+manager:
+  # Get scheduler list dynamically from manager
+  enable: true
+  # Manager service address
+  netAddrs:
+    - type: tcp
+      addr: manager-service:65003
+  # Scheduler list refresh interval
+  refreshInterval: 10s
 objectStorage:
   # Enable object storage service
   enable: true

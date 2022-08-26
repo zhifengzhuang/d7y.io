@@ -106,9 +106,18 @@ objectStorage:
 
 ### Step 3: Enable object storage in the peer
 
-Enable the object storage service in the dfdaemon's configuration file.
+Enable the object storage service and enable the manager service in the dfdaemon's configuration file.
 
 ```yaml
+manager:
+  # Get scheduler list dynamically from manager
+  enable: true
+  # Manager service address
+  netAddrs:
+    - type: tcp
+      addr: manager-service:65003
+  # Scheduler list refresh interval
+  refreshInterval: 10s
 objectStorage:
   # Enable object storage service
   enable: true
