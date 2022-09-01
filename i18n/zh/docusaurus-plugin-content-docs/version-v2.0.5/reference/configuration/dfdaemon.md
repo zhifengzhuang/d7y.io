@@ -343,4 +343,7 @@ proxy:
   basicAuth:
     username: 'admin'
     password: 'password'
+
+# 数据收集服务地址
+# metrics: ':8000'
 ```

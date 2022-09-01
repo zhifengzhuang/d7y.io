@@ -354,4 +354,7 @@ proxy:
   basicAuth:
     username: 'admin'
     password: 'password'
+
+# prometheus metrics address
+# metrics: ':8000'
 ```
