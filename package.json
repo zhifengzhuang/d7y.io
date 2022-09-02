@@ -32,7 +32,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^16.2.1",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.4",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.5.1"
   },
   "browserslist": {
