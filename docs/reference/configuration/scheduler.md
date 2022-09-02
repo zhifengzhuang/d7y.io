@@ -9,150 +9,170 @@ The default path for the scheduler yaml configuration file is `/etc/dragonfly/sc
 and the default path is `$HOME/.dragonfly/config/scheduler.yaml` in darwin.
 
 ```yaml
-# server scheduler instance configuration
+# Server scheduler instance configuration.
 server:
-  # # ip
+  # # Server ip.
   # ip: 127.0.0.1
-  # # host
+  # # Server host.
   # host: localhost
-  # port is the ip and port scheduler server listens on
+  # Port is the ip and port scheduler server listens on.
   port: 8002
-  # workHome is working directory
-  # in linux, default value is /usr/local/dragonfly
-  # in macos(just for testing), default value is /Users/$USER/.dragonfly
+  # WorkHome is working directory.
+  # In linux, default value is /usr/local/dragonfly.
+  # In macos(just for testing), default value is /Users/$USER/.dragonfly.
   workHome: ''
-  # cacheDir is dynconfig cache storage directory
-  # in linux, default value is /var/cache/dragonfly
-  # in macos(just for testing), default value is /Users/$USER/.dragonfly/cache
+  # cacheDir is dynconfig cache storage directory.
+  # In linux, default value is /var/cache/dragonfly.
+  # In macos(just for testing), default value is /Users/$USER/.dragonfly/cache.
   cacheDir: ''
-  # logDir is the log storage directory
-  # in linux, default value is /var/log/dragonfly
-  # in macos(just for testing), default value is /Users/$USER/.dragonfly/logs
+  # logDir is the log storage directory.
+  # In linux, default value is /var/log/dragonfly.
+  # In macos(just for testing), default value is /Users/$USER/.dragonfly/logs.
   logDir: ''
-  # dataDir is the storage directory
-  # in linux, default value is /var/lib/dragonfly
-  # in macos(just for testing), default value is /Users/$USER/.dragonfly/data
+  # dataDir is the storage directory.
+  # In linux, default value is /var/lib/dragonfly.
+  # In macos(just for testing), default value is /Users/$USER/.dragonfly/data.
   dataDir: ''
 
-# scheduler policy configuration
+# Scheduler policy configuration.
 scheduler:
-  # algorithm configuration to use different scheduling algorithms,
+  # Algorithm configuration to use different scheduling algorithms,
   # default configuration supports "default" and "ml"
   # "default" is the rule-based scheduling algorithm,
   # "ml" is the machine learning scheduling algorithm
   # It also supports user plugin extension, the algorithm value is "plugin",
   # and the compiled `d7y-scheduler-plugin-evaluator.so` file is added to
-  # the dragonfly working directory plugins
+  # the dragonfly working directory plugins.
   algorithm: default
   # backSourceCount is the number of backsource clients
-  # when the seed peer is unavailable
+  # when the seed peer is unavailable.
   backSourceCount: 3
-  # retry scheduling back-to-source limit times
+  # Retry scheduling back-to-source limit times.
   retryBackSourceLimit: 5
-  # retry scheduling limit times
+  # Retry scheduling limit times.
   retryLimit: 10
-  # retry scheduling interval
+  # Retry scheduling interval.
   retryInterval: 50ms
-  # gc metadata configuration
+  # GC metadata configuration.
   gc:
-    # peerGCInterval is peer's gc interval
+    # peerGCInterval is peer's gc interval.
     peerGCInterval: 10m
-    # peerTTL is peer's TTL duration
+    # peerTTL is peer's TTL duration.
     peerTTL: 12h
-    # taskGCInterval is task's gc interval
+    # taskGCInterval is task's gc interval.
     taskGCInterval: 10m
-    # taskTTL is task's TTL duration
+    # taskTTL is task's TTL duration.
     taskTTL: 24h
-    # hostGCInterval is host's gc interval
+    # hostGCInterval is host's gc interval.
     hostGCInterval: 30m
-    # hostTTL is host's TTL duration
+    # hostTTL is host's TTL duration.
     hostTTL: 48h
 
-# dynamic data configuration
+# Dynamic data configuration.
 dynConfig:
-  # dynamic config refresh interval
+  # Dynamic config refresh interval.
   refreshInterval: 1m
 
-# scheduler host configuration
+# Scheduler host configuration.
 host:
-  # idc is the idc of scheduler instance
+  # idc is the idc of scheduler instance.
   idc: ''
-  # netTopology is the net topology of scheduler instance
+  # netTopology is the net topology of scheduler instance.
   netTopology: ''
-  # location is the location of scheduler instance
+  # location is the location of scheduler instance.
   location: ''
 
-# manager configuration
+# Manager configuration.
 manager:
-  # addr manager access address
+  # addr is manager access address.
   addr: manager-service:65003
-  # schedulerClusterID cluster id to which scheduler instance belongs
+  # schedulerClusterID cluster id to which scheduler instance belongs.
   schedulerClusterID: 1
-  # keepAlive keep alive configuration
+  # keepAlive keep alive configuration.
   keepAlive:
-    # interval
+    # KeepAlive interval.
     interval: 5s
 
-# seed peer configuration
+# Seed peer configuration.
 seedPeer:
-  # scheduler enable seed peer as P2P peer,
+  # Scheduler enable seed peer as P2P peer,
   # if the value is false, P2P network will not be back-to-source through
-  # seed peer but by peer and preheat feature does not work
+  # seed peer but by peer and preheat feature does not work.
   enable: true
 
-# machinery async job configuration,
-# see https://github.com/RichardKnop/machinery
+# Machinery async job configuration,
+# see https://github.com/RichardKnop/machinery.
 job:
-  # scheduler enable job service
+  # Scheduler enable job service.
   enable: true
-  # number of workers in global queue
+  # Number of workers in global queue.
   globalWorkerNum: 1
-  # number of workers in scheduler queue
+  # Number of workers in scheduler queue.
   schedulerWorkerNum: 1
-  # number of workers in local queue
+  # Number of workers in local queue.
   localWorkerNum: 5
-  # redis configuration
+  # Redis configuration.
   redis:
-    # host
+    # Redis host.
     host: ''
-    # port
+    # Redis port.
     port: 6379
-    # password
+    # Redis password.
     password: ''
-    # brokerDB
+    # Redis brokerDB name.
     brokerDB: 1
-    # backendDB
+    # Redis backendDB name.
     backendDB: 2
 
-# store task download information
+# Store task download information.
 storage:
-  # maxSize sets the maximum size in megabytes of storage file
+  # maxSize sets the maximum size in megabytes of storage file.
   maxSize: 100
-  # maxBackups sets the maximum number of storage files to retain
+  # maxBackups sets the maximum number of storage files to retain.
   maxBackups: 10
   # bufferSize sets the size of buffer container,
-  # if the buffer is full, write all the records in the buffer to the file
+  # if the buffer is full, write all the records in the buffer to the file.
   bufferSize: 100
 
-# enable prometheus metrics
+# Enable prometheus metrics.
 metrics:
-  # scheduler enable metrics service
+  # Scheduler enable metrics service.
   enable: false
-  # metrics service address
+  # Metrics service address.
   addr: ':8000'
-  # enable peer host metrics
+  # Enable peer host metrics.
   enablePeerHost: false
 
-# console shows log on console
+security:
+  # autoIssueCert indicates to issue client certificates for all grpc call.
+  # If AutoIssueCert is false, any other option in Security will be ignored.
+  autoIssueCert: false
+  # caCert is the root CA certificate for all grpc tls handshake, it can be path or PEM format string.
+  caCert: ''
+  # tlsVerify indicates to verify certificates.
+  tlsVerify: false
+  # tlsPolicy controls the grpc shandshake behaviors:
+  #   force: both ClientHandshake and ServerHandshake are only support tls
+  #   prefer: ServerHandshake supports tls and insecure (non-tls), ClientHandshake will only support tls
+  #   default: ServerHandshake supports tls and insecure (non-tls), ClientHandshake will only support insecure (non-tls)
+  # Notice: If the drgaonfly service has been deployed, a two-step upgrade is required.
+  # The first step is to set tlsPolicy to default, and then upgrade the dragonfly services.
+  # The second step is to set tlsPolicy to prefer, and tthen completely upgrade the dragonfly services.
+  tlsPolicy: 'prefer'
+  certSpec:
+    # validityPeriod is the validity period  of certificate.
+    validityPeriod: 4320h
+
+# Console shows log on console.
 console: false
 
-# whether to enable debug level logger and enable pprof
+# Whether to enable debug level logger and enable pprof.
 verbose: false
 
-# listen port for pprof, only valid when the verbose option is true
-# default is -1. If it is 0, pprof will use a random port
+# Listen port for pprof, only valid when the verbose option is true
+# default is -1. If it is 0, pprof will use a random port.
 pprof-port: -1
 
-# jaeger endpoint url, like: http://jaeger.dragonfly.svc:14268/api/traces
+# Jaeger endpoint url, like: http://jaeger.dragonfly.svc:14268/api/traces.
 jaeger: ''
 ```
