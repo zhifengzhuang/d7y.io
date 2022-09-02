@@ -146,9 +146,9 @@ download:
     # download service listen address
     # current, only support unix domain socket
     unixListen:
-      # in linux, default value is /var/run/dfdaemon.sock
-      # in macos(just for testing), default value is /tmp/dfdaemon.sock
-      socket: /var/run/dfdaemon.sock
+      # in linux, default value is /var/run/daemon.sock
+      # in macos(just for testing), default value is /tmp/daemon.sock
+      socket: /var/run/daemon.sock
   # peer grpc option
   # peer grpc service send pieces info to other peers
   peerGRPC:

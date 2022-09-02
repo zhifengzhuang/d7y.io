@@ -43,7 +43,7 @@ dfget [command]
       --callsystem string     The caller name which is mainly used for statistics and access control
       --config string         the path of configuration file with yaml extension name, it can also be set by env var: DFGET_CONFIG
       --console               whether logger output records to the stdout
-      --daemon-sock string    Download socket path of daemon. In linux, default value is /var/run/dfdaemon.sock, in macos(just for testing), default value is /tmp/dfdaemon.sock
+      --daemon-sock string    Download socket path of daemon. In linux, default value is /var/run/daemon.sock, in macos(just for testing), default value is /tmp/daemon.sock
       --digest string         Check the integrity of the downloaded file with digest, in format of md5:xxx or sha256:yyy
       --disable-back-source   Disable downloading directly from source when the daemon fails to download file
       --filter string         Filter the query parameters of the url, P2P overlay is the same one if the filtered url is same, in format of key&sign, which will filter 'key' and 'sign' query parameters
