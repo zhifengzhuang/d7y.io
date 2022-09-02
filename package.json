@@ -27,7 +27,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-github-btn": "^1.2.1",
-    "react-youtube": "^7.14.0"
+    "react-youtube": "^9.0.3"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.1.0",
